@@ -103,8 +103,3 @@ condo.add_one_time_payment(10000, 1)
 condo.add_one_time_payment(10000, 12)
 
 condo.export_ammort_table()
-
-
-
-
-
