@@ -101,5 +101,6 @@ condo = Loan("condo", 185000, 6.7, 20)
 condo.add_recurring_payment(500)
 condo.add_one_time_payment(10000, 1)
 condo.add_one_time_payment(10000, 12)
-
+condo.add_one_time_payment(10000, 24)
+print(condo.find_zero())
 condo.export_ammort_table()
