@@ -1,0 +1,8 @@
+import Loan
+
+test = Loan.Loan("test", 185000, 6.7, 20)
+test.add_one_time_payment(10000, 1)
+test.add_recurring_payment(500)
+
+
+print(test.find_zero())
