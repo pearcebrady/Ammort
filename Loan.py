@@ -4,15 +4,18 @@ import pandas as pd
 class Loan:
   def __init__(self, name, loan, interest, years):
 
-      self.name = name
-      self.loan = loan
-      self.interest = interest/100
-      self.years = years
-      
-      self.total_recurring_payments = 0
-      self.one_time_payments = []
-      self.one_time_payments_months = []
-      self.df = self.ammortization()
+    self.name = name
+    self.loan = loan
+    self.interest = interest/100
+    self.years = years
+    
+    self.monthly_payments = 0
+    self.total_recurring_payments = 0
+    self.total_interest = 0
+    self.one_time_payments = []
+    self.one_time_payments_months = []
+    self.df = self.ammortization()
+    print(self.name + ' loan for ' + str(self.years) + ' years with payments of ' + str(self.monthly_payments) + ' per month and a total interest paid of ' + str(self.total_interest))
 
   def ammortization(self):
     a = self.loan
@@ -77,6 +80,9 @@ class Loan:
 
     df = pd.DataFrame(df_initialize, columns=['month', 'interest','principal', 'loan balance', 'total_interest', 'monthly_payment'])
 
+    self.monthly_payments = monthly_payment
+    self.total_interest = total_interest[n-1]
+
     return df
 
   def add_recurring_payment(self, amount):
@@ -94,9 +100,7 @@ class Loan:
       arr[i][0] = i
       arr[i][1] = self.df['loan balance'][i]
       if arr[i][1] <= 0:
-        if self.total_recurring_payments != 0:
-          print("Total amount of recurring payment = " + str(self.total_recurring_payments*arr[i][0]))
-        return self.name + " loan will be paid off in " + str(arr[i][0]) + " months or " + str(arr[i][0] / 12) + " years. This is " + str(self.years*12 - arr[i][0]) + " months and " + str(self.years - (arr[i][0] / 12)) + " years less."
+        return self.name + " loan will be paid off in " + str(arr[i][0]) + " months or " + str(round(arr[i][0] / 12,2)) + " years. This is " + str(self.years*12 - arr[i][0]) + " months and " + str(round(self.years - (arr[i][0] / 12), 2)) + " years less."
     return self.name + " loan will be paid off in " + str(self.years) + " years"
 
   def export_ammort_table(self):

@@ -1,36 +1,39 @@
 <!DOCTYPE html>
   <head>
     <title>Extra Payment Ammortization Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./styles/style.css')}}">
   </head>
-  <h1>Welcome</h1>
-  <form action="{{ url_for("Ammort")}}" method="post">
-  <p>
-    <label for="Name of Loan">Loan Name:</label>
-    <input type="text" id="loan_name" name="loan_name" placeholder="loan_name">
-  </p>
-  <p>
-    <label for="Total Mortgage">Total Mortgage:</label>
-    <input type="text" id="total_mortgage" name="mort" placeholder="mortgage">
-  </p>
-  <p>
-    <label for="interest">Interest Rate:</label>
-    <input type="text" id="interest" name="int" placeholder="interest">
-  </p>
-  <p>
-    <label for="years">Years or Loan:</label>
-    <input type="text" id="years" name="years" placeholder="years">
-  </p>
-  <p>
-    <label for="recurring">Recurring Extra Payment:</label>
-    <input type="text" id="recurring" name="recurring" placeholder="recurring">
-  </p>
-  <p>
-    <label for="One Time Payment">One Time Payment Amount:</label>
-    <input type="one_amount" id="one_amount" name="one_amount" placeholder="one_amount">
-    <label for="One Time Payment Month">One Time Payment Month:</label>
-    <input type="one_month" id="one_month" name="one_month" placeholder="one_month">
-  </p>
-  <p>
-  <button type="submit">Submit</button>
-  </p>
+  <body>
+    <h1>Welcome</h1>
+    <form action="{{ url_for("Ammort")}}" method="post">
+    <p>
+      <label for="Name of Loan">Loan Name:</label>
+      <input type="text" id="loan_name" name="loan_name" placeholder="loan_name">
+    </p>
+    <p>
+      <label for="Total Mortgage">Total Mortgage:</label>
+      <input type="text" id="total_mortgage" name="mort" placeholder="mortgage">
+    </p>
+    <p>
+      <label for="interest">Interest Rate:</label>
+      <input type="text" id="interest" name="int" placeholder="interest">
+    </p>
+    <p>
+      <label for="years">Years or Loan:</label>
+      <input type="text" id="years" name="years" placeholder="years">
+    </p>
+    <p>
+      <label for="recurring">Recurring Extra Payment:</label>
+      <input type="text" id="recurring" name="recurring" placeholder="recurring">
+    </p>
+    <p>
+      <label for="One Time Payment">One Time Payment Amount:</label>
+      <input type="one_amount" id="one_amount" name="one_amount" placeholder="one_amount">
+      <label for="One Time Payment Month">One Time Payment Month:</label>
+      <input type="one_month" id="one_month" name="one_month" placeholder="one_month">
+    </p>
+    <p>
+    <button type="submit">Submit</button>
+    </p>
+</body>
 </html>
