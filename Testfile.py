@@ -17,7 +17,7 @@ def Ammort():
 
     loan = Loan.Loan(name_of_loan, total_mortgage, interest, years)
     loan.add_recurring_payment(recurring)
-    loan.add_one_time_payment(10000, 1)
+    loan.add_one_time_payment(one_pay, one_time)
 
     msg = loan.find_zero()
 
